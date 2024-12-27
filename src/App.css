@@ -1,0 +1,216 @@
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+  }
+  
+  h1, h2, h3 {
+    color: #333;
+    text-align: center;
+  }
+  
+  /* Container for the entire app */
+  .App {
+    width: 80%;
+    max-width: 900px;
+    margin-top: 40px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Form Group Container */
+  .group {
+    margin-bottom: 20px;
+  }
+  
+  .group1 {
+    margin-bottom: 30px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+    color: #555;
+  }
+  
+  input, select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 5px;
+  }
+  
+  input[type="number"] {
+    width: 50%;
+  }
+  
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    transition: all 0.3s;
+  }
+  
+  button:hover {
+    opacity: 0.8;
+  }
+  
+  /* Submit Button */
+  .submit-btn {
+    background-color: #4CAF50;
+    color: white;
+    margin-right: 10px;
+  }
+  
+  .submit-btn:hover {
+    background-color: #45a049;
+  }
+  
+  /* Clear Button */
+  .clear-btn {
+    background-color: #f44336;
+    color: white;
+  }
+  
+  .clear-btn:hover {
+    background-color: #e53935;
+  }
+  
+  /* Bill Calculation Section */
+  .group2 {
+    margin-top: 40px;
+    text-align: center;
+  }
+  
+  .bill-btn {
+    background-color: #2196F3;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .bill-btn:hover {
+    background-color: #1976D2;
+  }
+  
+  h3 {
+    margin-top: 20px;
+  }
+  
+  /* Stored Weights Section */
+  .stored-weights {
+    margin-top: 30px;
+  }
+  
+  .records-group {
+    margin-bottom: 30px;
+  }
+  
+  .records-group h3 {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 15px;
+  }
+  
+  .record-card {
+    padding: 15px;
+    margin-bottom: 10px;
+    background-color: #fafafa;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .record-header {
+    font-weight: bold;
+  }
+  
+  .timestamp {
+    font-size: 12px;
+    color: #888;
+  }
+  
+  .record-body {
+    margin-top: 10px;
+  }
+  
+  .weight {
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .records-group p {
+    font-size: 14px;
+    color: #777;
+  }
+  
+  /* Print Button Container */
+  .print-button-container {
+    margin-top: 30px;
+    text-align: center;
+  }
+  
+  .print-btn {
+    background-color: #9C27B0;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .print-btn:hover {
+    background-color: #7B1FA2;
+  }
+  
+  @media screen and (max-width: 600px) {
+    .App {
+      width: 100%;
+      padding: 10px;
+    }
+  
+    .form-group {
+      margin-bottom: 15px;
+    }
+  
+    input, select {
+      font-size: 14px;
+    }
+  
+    button {
+      font-size: 14px;
+      padding: 8px 16px;
+    }
+  
+    .bill-btn, .print-btn, .submit-btn, .clear-btn {
+      font-size: 14px;
+      padding: 8px 16px;
+    }
+  }
+  
+  
