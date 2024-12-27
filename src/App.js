@@ -11,6 +11,7 @@ function App() {
   const [showCustomOptionForm, setShowCustomOptionForm] = useState(false);
   const [newOption, setNewOption] = useState('');
   const [newValue, setNewValue] = useState('');
+  const [showCustomOptionsModal, setShowCustomOptionsModal] = useState(false); // State to control modal visibility
 
   // Load custom options and weights from localStorage on component mount
   useEffect(() => {
@@ -168,10 +169,15 @@ function App() {
     doc.save('billing-report.pdf');
   };
 
+  // Toggle modal visibility
+  const toggleModal = () => {
+    setShowCustomOptionsModal(!showCustomOptionsModal);
+  };
+
   return (
     <div className="App">
       <h1>Weight Selection</h1>
-<hr />
+      <hr />
       <div className="group group1">
         <div className="form-group">
           <label>Select Option: </label>
@@ -200,14 +206,14 @@ function App() {
           <button className="clear-btn" onClick={handleClear}>Clear All</button>
         </div>
       </div>
-<hr />
+      <hr />
       <div className="group group2">
         <h2>Bill Calculation</h2>
         <button className="bill-btn" onClick={handleBillCalculation}>Calculate Bill</button>
 
         <h3>Total: {totalAmount}</h3>
       </div>
-<hr />
+      <hr />
       <div className="stored-weights">
         <h2>Stored Weights:</h2>
 
@@ -223,7 +229,74 @@ function App() {
           </div>
         ))}
       </div>
-<hr />
+      <hr />
+      {/* Add Custom Option Button */}
+      <div className="group group3">
+        <button
+          className="custom-option-btn"
+          onClick={() => setShowCustomOptionForm(!showCustomOptionForm)}
+        >
+          {showCustomOptionForm ? 'Cancel' : 'Add Custom Option'}
+        </button>
+
+        {/* Custom Option Form */}
+        {showCustomOptionForm && (
+          <div className="custom-option-form">
+            <div className="form-group">
+              <label>Option Name:</label>
+              <input
+                type="text"
+                value={newOption}
+                onChange={(e) => setNewOption(e.target.value)}
+                placeholder="Enter option name (e.g., D)"
+              />
+            </div>
+            <div className="form-group">
+              <label>Price Value:</label>
+              <input
+                type="number"
+                value={newValue}
+                onChange={(e) => setNewValue(e.target.value)}
+                placeholder="Enter price per kg"
+              />
+            </div>
+            <div className="button-container">
+              <button className="submit-btn" onClick={handleAddCustomOption}>Add Option</button>
+            </div>
+          </div>
+        )}
+<br />
+        {/* View Custom Options Button */}
+        <button className="view-options-btn" onClick={toggleModal}>
+          View Custom Options
+        </button>
+      </div>
+      {/* Modal for Custom Options */}
+      {showCustomOptionsModal && (
+        <div className="modal">
+          <div className="modal-content">
+            <span className="close-btn" onClick={toggleModal}>&times;</span>
+            <h2>Custom Options</h2>
+            <table>
+              <thead>
+                <tr>
+                  <th>Option</th>
+                  <th>Price</th>
+                </tr>
+              </thead>
+              <tbody>
+                {Object.entries(customOptions).map(([option, value], index) => (
+                  <tr key={index}>
+                    <td>{option}</td>
+                    <td>{value}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      )}
+      <hr />
       {/* Download PDF Button */}
       <div className="pdf-container">
         <button className="pdf-btn" onClick={handlePrint}>
